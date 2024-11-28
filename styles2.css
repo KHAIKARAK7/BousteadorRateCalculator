@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.calculator {
+  background: #ffffff;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+header h2 {
+  font-size: 16px;
+  margin: 5px 0;
+  color: teal;
+}
+
+.dates {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.box {
+  background: #ffed9e;
+  border-radius: 5px;
+  padding: 10px;
+  flex: 1;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.end-date {
+  background: #ff9e9e;
+}
+
+.duration {
+  margin: 20px 0;
+  background: #e0ffe0;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: darkcyan;
+}

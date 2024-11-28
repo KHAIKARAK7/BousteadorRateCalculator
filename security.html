@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bousteador Rate Calculator</title>
+  <style>
+    /* Universal Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Main Container */
+.container {
+  width: 700px;
+  padding: 40px;
+  background: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.5rem;
+  color: #00ffc3;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Form Layout */
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1;
+  margin: 0 10px;
+}
+
+label {
+  font-size: 1.2rem;
+  color: #a1a1a1;
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 80%;
+  padding: 15px;
+  font-size: 1rem;
+  border: 2px solid #2d2d2d;
+  border-radius: 10px;
+  background: #393939;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #00ffc3;
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0d0d0d;
+  background: linear-gradient(90deg, #00ffc3, #00a8ff);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #00a8ff, #00ffc3);
+  transform: scale(1.03);
+}
+
+/* Output Section */
+.output-section {
+  margin-top: 30px;
+  width: 100%;
+  text-align: left;
+}
+
+.output, .output2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00ffc3;
+  margin: 15px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #777;
+  text-transform: uppercase;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group {
+    margin: 0 0 20px 0;
+  }
+
+  input, button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .output, .output2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bousteador Calculator</h1>
+
+    <!-- Form Row: Starting Date/Time -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="start-date">Starting Date</label>
+        <input type="date" id="start-date">
+      </div>
+      <div class="form-group">
+        <label for="start-time">Starting Time</label>
+        <input type="time" id="start-time" step="1">
+      </div>
+    </div>
+
+    <!-- Form Row: Ending Date/Time -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="end-date">End Date</label>
+        <input type="date" id="end-date">
+      </div>
+      <div class="form-group">
+        <label for="end-time">End Time</label>
+        <input type="time" id="end-time" step="1">
+      </div>
+    </div>
+
+    <!-- Calculate Button -->
+    <button id="calculate-btn">Calculate</button>
+
+    <!-- Output Section -->
+    <div class="output-section">
+      <div class="output2" id="duration"><span id="duration-value"></span></div>
+      <div class="output" id="total-price"> <span id="total-price-value"></span></div>
+      <div class="output" id="total-count"> <span id="total-count-value"></span></div>
+    </div>
+
+    <p class="footer">Designed for Calculate</p>
+  </div>
+
+  <script src="script2.js"></script>
+</body>
+</html>
