@@ -271,7 +271,7 @@ function calculateParkingFee() {
       totalPrice += 3; // RM3 untuk maksimum sehari
     } else {
       const segmentPrice = calculateWeekdayRate(segmentHours);
-      totalPrice += Math.min(segmentPrice, 15); // Maksimum RM15 sehari
+      totalPrice += Math.min(segmentPrice, 32); // Maksimum RM32 sehari
     }
 
     currentDate = nextMidnight;
