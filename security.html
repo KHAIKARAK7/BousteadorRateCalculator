@@ -250,6 +250,15 @@ function calculateParkingFee() {
     return;
   }
 
+  const durationMillis = endDateTime - startDateTime;
+  const gracePeriodMillis = 15 * 60 * 1000; // 15 minit dalam milisaat
+
+  // Jika dalam masa Grace Period, yuran adalah percuma
+  if (durationMillis <= gracePeriodMillis) {
+    document.getElementById("total-price").textContent = "Jumlah Harga: RM0.00 (15 minit pertama percuma)";
+    return;
+  }
+
   let totalPrice = 0;
   let currentDate = new Date(startDateTime);
 
