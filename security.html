@@ -20,37 +20,38 @@ body {
 }
 
 /* Top Buttons */
-    .top-buttons {
-      display: flex;
-      justify-content: space-around;
-      width: 60%;
-      margin-bottom: 20px;
-      position: absolute; /* Position them above the container */
-      top: 20px; /* Adjust this value based on your design */
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  
-    .top-btn {
-      padding: 10px 20px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      width: 300px;
-      color: #ffffff;
-      background: #00000000;
-      border: none;
-      border-radius: 0px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-  
-    .top-btn:hover {
-      background: #0365ba00; /* blue hover effect */
-      text-decoration: underline; /* underline on hover */
-      text-decoration-color: black; /* black underline color */
-      text-underline-offset: 30px; /* adjust the space between the text and the underline */
-  }
-    
+.top-buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative; /* Change absolute to relative for more flexibility */
+  top: 0;
+  flex-wrap: wrap; /* Ensure buttons stack if needed on smaller screens */
+  padding: 10px;
+}
+
+.top-btn {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  width: 180px; /* Reduce width for mobile */
+  margin: 8px;
+  color: #ffffff;
+  background: transparent;
+  border: 2px solid #00ffc3;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.top-btn:hover {
+  background: #0365ba00; /* blue hover effect */
+  text-decoration: underline;
+  text-decoration-color: black;
+  text-underline-offset: 30px;
+}
+
 /* Main Container */
 .container {
   width: 700px;
@@ -182,7 +183,18 @@ button:hover {
     font-size: 1.2rem;
     margin: 10px 0;
   }
+
+  .top-buttons {
+    margin-top: 20px;
+    justify-content: center;
+  }
+
+  .top-btn {
+    width: 100%;
+    font-size: 1rem;
+  }
 }
+
 
   </style>
 </head>
