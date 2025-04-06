@@ -19,6 +19,38 @@ body {
   overflow-x: hidden;
 }
 
+/* Top Buttons */
+    .top-buttons {
+      display: flex;
+      justify-content: space-around;
+      width: 60%;
+      margin-bottom: 20px;
+      position: absolute; /* Position them above the container */
+      top: 20px; /* Adjust this value based on your design */
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    .top-btn {
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 300px;
+      color: #ffffff;
+      background: #00000000;
+      border: none;
+      border-radius: 0px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+  
+    .top-btn:hover {
+      background: #0365ba00; /* blue hover effect */
+      text-decoration: underline; /* underline on hover */
+      text-decoration-color: black; /* black underline color */
+      text-underline-offset: 30px; /* adjust the space between the text and the underline */
+  }
+    
 /* Main Container */
 .container {
   width: 700px;
@@ -195,6 +227,18 @@ button:hover {
     <p class="footer">Designed for Calculate</p>
   </div>
 
+<body>
+    <!-- Top Buttons Section outside the container -->
+    <div class="top-buttons">
+      <button class="top-btn" onclick="openInNewTabAndClose('https://khaikarak7.github.io/TheCurveCalculator/html')">The Curve</button>
+      <button class="top-btn" onclick="window.location.href='https://khaikarak7.github.io/BousteadorRateCalculator/security.html'">Curve Nx</button>
+      <button class="top-btn" onclick="window.location.href='https://khaikarak7.github.io/BousteadorRateCalculator/security.html'">Bousteador</button>
+      <button class="top-btn" onclick="window.location.href='https://khaikarak7.github.io/BousteadorRateCalculator/security.html'">RCD</button>
+      <button class="top-btn" onclick="window.location.href='https://khaikarak7.github.io/BousteadorRateCalculator/security.html'">RCTC</button>
+
+
+    </div>
+
   <script>
     
    document.getElementById("calculate-btn").addEventListener("click", () => {
@@ -304,7 +348,12 @@ function calculateWeekdayRate(hours) {
   return price;
 }
 
+function redirectAndClose(url) {
+      window.open(url, '_self'); // Navigate in same tab
+      window.close(); // Try to close the current tab (may not work due to browser restrictions)
+    }
 
+    
   </script>
 </body>
 </html>
