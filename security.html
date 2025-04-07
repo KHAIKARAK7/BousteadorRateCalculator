@@ -6,68 +6,73 @@
   <title>Bousteador Rate Calculator</title>
   <style>
     /* Universal Styles */
+/* Universal Styles */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: #0d0d0d;
-  color: #ffffff;
+  background: linear-gradient(135deg, #0d0d0d, #000000, #000000); /* 3-color gradient */
+  color: #ffffff; /* light mint green for text */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
+  flex-direction: column; /* Ensures content is stacked vertically */
 }
 
 /* Top Buttons */
-    .top-buttons {
-      display: flex;
-      justify-content: space-around;
-      width: 60%;
-      margin-bottom: 20px;
-      position: absolute; /* Position them above the container */
-      top: 20px; /* Adjust this value based on your design */
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  
-    .top-btn {
-      padding: 10px 20px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      width: 300px;
-      color: #ffffff;
-      background: #00000000;
-      border: none;
-      border-radius: 0px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-  
-    .top-btn:hover {
-      background: #0365ba00; /* blue hover effect */
-      text-decoration: underline; /* underline on hover */
-      text-decoration-color: black; /* black underline color */
-      text-underline-offset: 30px; /* adjust the space between the text and the underline */
-  }
-    
-/* Main Container */
-.container {
+.top-buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  top: 0;
+  flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+  padding: 10px;
+}
+
+.top-btn {
+  padding: 12px 20px;
+  font-size: 1rem; /* Adjust font size for mobile */
+  font-weight: bold;
+  width: 180px; /* Adjust width for mobile */
+  margin: 8px;
+  color: #ffffff;
+  background: #00000000;
+  border: 2px solid #00000000;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.top-btn:hover {
+  background: #0365ba00;
+  text-decoration: underline;
+  text-decoration-color: black;
+  text-underline-offset: 30px;
+}
+
+ /* Main Container */
+ .container {
   width: 700px;
   padding: 40px;
-  background: #1a1a1a;
+  background: #1a1a1a; /* slightly lighter grey container */
   border-radius: 20px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  border: 2px solid #1db95400; /* green border */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* green glow shadow */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 1%; /* Adjust for top button space */
 }
 
 /* Heading */
 h1 {
   font-size: 2.5rem;
-  color: #00ffc3;
+  color: #00ffc3; /* green for freshness */
   font-weight: 700;
   margin-bottom: 30px;
   text-transform: uppercase;
@@ -88,8 +93,8 @@ h1 {
 }
 
 label {
-  font-size: 1.2rem;
-  color: #a1a1a1;
+  font-size: 1.1rem;
+  color: #a1a1a1; /* soft light green */
   display: block;
   margin-bottom: 10px;
 }
@@ -98,17 +103,17 @@ input {
   width: 80%;
   padding: 15px;
   font-size: 1rem;
-  border: 2px solid #2d2d2d;
+  border: 2px solid #2d2d2d; /* green border */
   border-radius: 10px;
-  background: #393939;
+  background: #393939; /* dark background for inputs */
   color: #fff;
   transition: all 0.3s ease;
 }
 
 input:focus {
   outline: none;
-  border-color: #00ffc3;
-  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5);
+  border-color: #00ffc3; /* blue focus border */
+  box-shadow: 0 0 10px rgba(0, 255, 195, 0.5); /* blue glow */
 }
 
 button {
@@ -117,7 +122,7 @@ button {
   font-size: 1.2rem;
   font-weight: bold;
   color: #0d0d0d;
-  background: linear-gradient(90deg, #00ffc3, #00a8ff);
+  background: linear-gradient(90deg, #00ffc3, #00a8ff); /* green to blue gradient */
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -127,7 +132,7 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(90deg, #00a8ff, #00ffc3);
+  background: linear-gradient(90deg, #00a8ff, #00ffc3); /* swapped gradient */
   transform: scale(1.03);
 }
 
@@ -157,77 +162,46 @@ button:hover {
 /* Responsiveness */
 @media (max-width: 768px) {
   .container {
-    width: 90%;
     padding: 20px;
+    width: 90%; /* Adjust for mobile */
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Adjust heading size */
   }
 
   .form-row {
-    flex-direction: column;
+    flex-direction: column; /* Stack form fields */
   }
 
   .form-group {
-    margin: 0 0 20px 0;
+    margin: 0 0 20px 0; /* Adjust spacing */
   }
 
   input, button {
     font-size: 1rem;
-    padding: 10px;
+    padding: 12px;
   }
 
   .output, .output2 {
     font-size: 1.2rem;
     margin: 10px 0;
   }
+
+  .top-buttons {
+    position: relative; /* Reset any fixed positioning */
+    margin-top: 20px; /* Move buttons down */
+  }
+
+  .top-btn {
+    width: 100%; /* Full width buttons */
+    font-size: 1rem;
+  }
 }
 
   </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Bousteador Calculator</h1>
-
-    <!-- Form Row: Starting Date/Time -->
-    <div class="form-row">
-      <div class="form-group">
-        <label for="start-date">Starting Date</label>
-        <input type="date" id="start-date">
-      </div>
-      <div class="form-group">
-        <label for="start-time">Starting Time</label>
-        <input type="time" id="start-time" step="1">
-      </div>
-    </div>
-
-    <!-- Form Row: Ending Date/Time -->
-    <div class="form-row">
-      <div class="form-group">
-        <label for="end-date">End Date</label>
-        <input type="date" id="end-date">
-      </div>
-      <div class="form-group">
-        <label for="end-time">End Time</label>
-        <input type="time" id="end-time" step="1">
-      </div>
-    </div>
-
-    <!-- Calculate Button -->
-    <button id="calculate-btn">Calculate</button>
-
-    <!-- Output Section -->
-    <div class="output-section">
-      <div class="output2" id="duration"><span id="duration-value"></span></div>
-      <div class="output" id="total-price"> <span id="total-price-value"></span></div>
-      <div class="output" id="total-count"> <span id="total-count-value"></span></div>
-    </div>
-
-    <p class="footer">Designed for Calculate</p>
-  </div>
-
-<body>
+  
+  <body>
     <!-- Top Buttons Section outside the container -->
     <div class="top-buttons">
       <button class="top-btn" onclick="window.location.href='https://khaikarak7.github.io/TheCurveCalculator/html'">The Curve</button>
@@ -238,122 +212,164 @@ button:hover {
 
 
     </div>
+  
+    <div class="container">
+      <h1>Bousteador Calculator</h1>
+  
+      <!-- Form Row: Starting Date/Time -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="start-date">Starting Date</label>
+          <input type="date" id="start-date">
+        </div>
+        <div class="form-group">
+          <label for="start-time">Starting Time</label>
+          <input type="time" id="start-time" step="1">
+        </div>
+      </div>
+  
+      <!-- Form Row: Ending Date/Time -->
+      <div class="form-row">
+        <div class="form-group">
+          <label for="end-date">End Date</label>
+          <input type="date" id="end-date">
+        </div>
+        <div class="form-group">
+          <label for="end-time">End Time</label>
+          <input type="time" id="end-time" step="1">
+        </div>
+      </div>
+  
+      <!-- Calculate Button -->
+      <button id="calculate-btn">Calculate</button>
+  
+      <!-- Output Section -->
+      <div class="output-section">
+        <div class="output2" id="duration"><span id="duration-value"></span></div>
+        <div class="output" id="total-price"> <span id="total-price-value"></span></div>
+        <div class="output" id="total-count"> <span id="total-count-value"></span></div>
+      </div>
+  
+      <p class="footer">Designed for Calculate</p>
+    </div>
+  
 
-  <script>
-    
-   document.getElementById("calculate-btn").addEventListener("click", () => {
-  calculateDuration();
-  calculateParkingFee();
-});
-
-// Fungsi untuk mengira durasi
-function calculateDuration() {
-  const startDate = document.getElementById("start-date").value;
-  const startTime = document.getElementById("start-time").value;
-  const endDate = document.getElementById("end-date").value;
-  const endTime = document.getElementById("end-time").value;
-
-  if (!startDate || !startTime || !endDate || !endTime) {
-    alert("Harap isi semua tarikh dan waktu dengan betul!");
-    return;
-  }
-
-  const startDateTime = new Date(`${startDate}T${startTime}`);
-  const endDateTime = new Date(`${endDate}T${endTime}`);
-
-  if (endDateTime <= startDateTime) {
-    alert("Waktu tamat mesti selepas waktu mula!");
-    return;
-  }
-
-  const durationMillis = endDateTime - startDateTime;
-  const hours = Math.floor(durationMillis / (1000 * 60 * 60));
-  const minutes = Math.floor((durationMillis % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((durationMillis % (1000 * 60)) / 1000);
-
-  document.getElementById("duration").textContent = `${hours} jam ${minutes} minit ${seconds} saat`;
-}
-
-// Fungsi untuk mengira yuran parkir
-function calculateParkingFee() {
-  const startDate = document.getElementById("start-date").value;
-  const startTime = document.getElementById("start-time").value;
-  const endDate = document.getElementById("end-date").value;
-  const endTime = document.getElementById("end-time").value;
-
-  if (!startDate || !startTime || !endDate || !endTime) {
-    alert("Harap isi semua tarikh dan waktu dengan betul!");
-    return;
-  }
-
-  const startDateTime = new Date(`${startDate}T${startTime}`);
-  const endDateTime = new Date(`${endDate}T${endTime}`);
-
-  if (endDateTime <= startDateTime) {
-    alert("Waktu tamat mesti selepas waktu mula!");
-    return;
-  }
-
-  const durationMillis = endDateTime - startDateTime;
-  const gracePeriodMillis = 15 * 60 * 1000; // 15 minit dalam milisaat
-
-  // Jika dalam masa Grace Period, yuran adalah percuma
-  if (durationMillis <= gracePeriodMillis) {
-    document.getElementById("total-price").textContent = "Jumlah Harga: RM0.00 (15 minit pertama percuma)";
-    return;
-  }
-
-  let totalPrice = 0;
-  let currentDate = new Date(startDateTime);
-
-  while (currentDate < endDateTime) {
-    const nextMidnight = new Date(
-      currentDate.getFullYear(),
-      currentDate.getMonth(),
-      currentDate.getDate() + 1,
-      0,
-      0,
-      0
-    );
-    const segmentEndTime = nextMidnight > endDateTime ? endDateTime : nextMidnight;
-    const segmentHours = Math.ceil((segmentEndTime - currentDate) / (1000 * 60 * 60));
-
-    const currentDay = currentDate.toLocaleString("en-US", { weekday: "long" }).toUpperCase();
-
-    if (["SATURDAY", "SUNDAY"].includes(currentDay)) {
-      totalPrice += 3; // RM3 untuk maksimum sehari
-    } else {
-      const segmentPrice = calculateWeekdayRate(segmentHours);
-      totalPrice += Math.min(segmentPrice, 32); // Maksimum RM32 sehari
+  
+    <script>
+      
+     document.getElementById("calculate-btn").addEventListener("click", () => {
+    calculateDuration();
+    calculateParkingFee();
+  });
+  
+  // Fungsi untuk mengira durasi
+  function calculateDuration() {
+    const startDate = document.getElementById("start-date").value;
+    const startTime = document.getElementById("start-time").value;
+    const endDate = document.getElementById("end-date").value;
+    const endTime = document.getElementById("end-time").value;
+  
+    if (!startDate || !startTime || !endDate || !endTime) {
+      alert("Harap isi semua tarikh dan waktu dengan betul!");
+      return;
     }
-
-    currentDate = nextMidnight;
-  }
-
-  document.getElementById("total-price").textContent = `Jumlah Harga: RM${totalPrice.toFixed(2)}`;
-}
-
-// Fungsi pembantu untuk tarif hari kerja
-function calculateWeekdayRate(hours) {
-  let price = 0;
-  if (hours >= 1) {
-    price += 3; // RM3 untuk jam pertama
-    if (hours > 1 && hours <= 7) {
-      price += (hours - 1) * 2;
-    } else if (hours > 7) {
-      price += 6 * 2; // RM12 untuk jam 2 hingga 7
-      price += (hours - 7); // RM1 untuk jam selepas 7
+  
+    const startDateTime = new Date(`${startDate}T${startTime}`);
+    const endDateTime = new Date(`${endDate}T${endTime}`);
+  
+    if (endDateTime <= startDateTime) {
+      alert("Waktu tamat mesti selepas waktu mula!");
+      return;
     }
+  
+    const durationMillis = endDateTime - startDateTime;
+    const hours = Math.floor(durationMillis / (1000 * 60 * 60));
+    const minutes = Math.floor((durationMillis % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((durationMillis % (1000 * 60)) / 1000);
+  
+    document.getElementById("duration").textContent = `${hours} jam ${minutes} minit ${seconds} saat`;
   }
-  return price;
-}
-
-function redirectAndClose(url) {
-      window.open(url, '_self'); // Navigate in same tab
-      window.close(); // Try to close the current tab (may not work due to browser restrictions)
+  
+  // Fungsi untuk mengira yuran parkir
+  function calculateParkingFee() {
+    const startDate = document.getElementById("start-date").value;
+    const startTime = document.getElementById("start-time").value;
+    const endDate = document.getElementById("end-date").value;
+    const endTime = document.getElementById("end-time").value;
+  
+    if (!startDate || !startTime || !endDate || !endTime) {
+      alert("Harap isi semua tarikh dan waktu dengan betul!");
+      return;
     }
-
-    
-  </script>
-</body>
-</html>
+  
+    const startDateTime = new Date(`${startDate}T${startTime}`);
+    const endDateTime = new Date(`${endDate}T${endTime}`);
+  
+    if (endDateTime <= startDateTime) {
+      alert("Waktu tamat mesti selepas waktu mula!");
+      return;
+    }
+  
+    const durationMillis = endDateTime - startDateTime;
+    const gracePeriodMillis = 15 * 60 * 1000; // 15 minit dalam milisaat
+  
+    // Jika dalam masa Grace Period, yuran adalah percuma
+    if (durationMillis <= gracePeriodMillis) {
+      document.getElementById("total-price").textContent = "Jumlah Harga: RM0.00 (15 minit pertama percuma)";
+      return;
+    }
+  
+    let totalPrice = 0;
+    let currentDate = new Date(startDateTime);
+  
+    while (currentDate < endDateTime) {
+      const nextMidnight = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        currentDate.getDate() + 1,
+        0,
+        0,
+        0
+      );
+      const segmentEndTime = nextMidnight > endDateTime ? endDateTime : nextMidnight;
+      const segmentHours = Math.ceil((segmentEndTime - currentDate) / (1000 * 60 * 60));
+  
+      const currentDay = currentDate.toLocaleString("en-US", { weekday: "long" }).toUpperCase();
+  
+      if (["SATURDAY", "SUNDAY"].includes(currentDay)) {
+        totalPrice += 3; // RM3 untuk maksimum sehari
+      } else {
+        const segmentPrice = calculateWeekdayRate(segmentHours);
+        totalPrice += Math.min(segmentPrice, 32); // Maksimum RM32 sehari
+      }
+  
+      currentDate = nextMidnight;
+    }
+  
+    document.getElementById("total-price").textContent = `Jumlah Harga: RM${totalPrice.toFixed(2)}`;
+  }
+  
+  // Fungsi pembantu untuk tarif hari kerja
+  function calculateWeekdayRate(hours) {
+    let price = 0;
+    if (hours >= 1) {
+      price += 3; // RM3 untuk jam pertama
+      if (hours > 1 && hours <= 7) {
+        price += (hours - 1) * 2;
+      } else if (hours > 7) {
+        price += 6 * 2; // RM12 untuk jam 2 hingga 7
+        price += (hours - 7); // RM1 untuk jam selepas 7
+      }
+    }
+    return price;
+  }
+  
+  function redirectAndClose(url) {
+        window.open(url, '_self'); // Navigate in same tab
+        window.close(); // Try to close the current tab (may not work due to browser restrictions)
+      }
+  
+      
+    </script>
+  </body>
+  </html>
