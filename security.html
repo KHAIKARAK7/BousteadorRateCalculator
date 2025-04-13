@@ -20,7 +20,108 @@ body {
   overflow-x: hidden;
   flex-direction: column; /* Ensures content is stacked vertically */
 }
+/* Popup Style */
+.popup-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.708);
+  overflow-x: auto;
+  z-index: 9999;
+  justify-content: center;      /* Center secara horizontal */
+  align-items: center;          /* Center secara vertikal */
+  
+  
+}
 
+.popup-content {
+  background-color: #1E3A8A;
+  margin: 5% auto;
+  padding: 10px;
+  padding-left: 3%;
+  padding-right: 34px;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 700px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 80vh;
+  overflow: auto; /* Boleh scroll jika kandungan lebih tinggi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Pastikan tinggi penuh */
+}
+
+/* Hide scrollbar but still allow scrolling */
+.popup-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.popup-content {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;      /* Firefox */
+}
+
+
+.popup-content img {
+
+  width: 55vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  margin-top: 450px;
+  
+
+}
+
+@media only screen and (max-width: 768px) {
+  .popup-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    z-index: 999; /* optional, kalau perlu naikkan atas */
+  }
+
+  .popup-content img {
+    width: 92vw;
+    height: 92vh;
+    object-fit: contain;
+    margin-top: 50px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: -10px !important;
+    right: 50px !important;
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 9999;
+  }
+}
 /* Top Buttons */
 .top-buttons {
   display: flex;
@@ -54,19 +155,80 @@ body {
   text-underline-offset: 30px;
 }
 
+.side-buttons {
+  position: relative;
+  top: -80px; /* Jarak dari atas */
+  left: -340px; /* Jarak dari kiri */
+  display: inline-block;
+  
+}
+
+.side-btn,
+.side-btn2 {
+  position: absolute;
+  font-size: 16px; /* contoh saiz font, boleh ubah */
+  font-weight: bold;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.65em 1.2em; /* ✅ ikut saiz font dengan sempurna */
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s;
+  width: auto;
+  height: auto;
+  
+}
+.side-btn {
+  z-index: 2; /* atas */
+}
+
+.side-btn2 {
+  z-index: 1; /* bawah */
+  background-color: #000000; /* lebih gelap sikit untuk efek 'wrap belakang' */
+  left: 190px; /* 👈 gerak sikit ke kanan */
+}
+
+
+
+.side-btn:hover {
+  background-color: #0090cc;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .side-buttons {
+    top: -50px;
+    left: -50px; /* Adjusted for smaller screens */
+  }
+
+  .side-btn,
+  .side-btn2 {
+    font-size: 14px; /* Smaller text for mobile */
+    padding: 0.5em 1em; /* Less padding */
+    left: -130px;
+  }
+
+  .side-btn2 {
+    left: 30px;  /* Slight shift to right */
+    
+  }
+}
+
  /* Main Container */
  .container {
   width: 700px;
-  padding: 40px;
-  background: #1a1a1a; /* slightly lighter grey container */
+  padding: 40px; /* top right bottom left */
+  background: #1f1f1f; /* slightly lighter grey container */
   border-radius: 20px;
   border: 2px solid #1db95400; /* green border */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* green glow shadow */
+  box-shadow: 0 15px 30px rgba(29, 185, 84, 0.3); /* green glow shadow */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 1%; /* Adjust for top button space */
+  margin-top: 20px; /* Adjust for top button space */
 }
 
 /* Heading */
@@ -214,6 +376,33 @@ button:hover {
     </div>
   
     <div class="container">
+
+      <div class="custom-layout">
+        <div class="main-wrapper">
+          <div class="side-buttons">
+            <button class="side-btn">Season Plan</button>
+            <button class="side-btn2" id="openPopup">Parking Rate</button>
+          </div>
+      
+          <!-- First Popup Modal -->
+          <div id="popupModal1" class="popup-modal">
+            <div class="popup-content">
+              <span class="close-btn">&times;</span>
+              <img src="BousteadorRate.png" alt="Parking Rate">
+            </div>
+          </div>
+      
+          <!-- Second Popup Modal -->
+          <div id="popupModal2" class="popup-modal">
+            <div class="popup-content">
+              <span class="close-btn">&times;</span>
+              <img src="BousteadorRate.png" alt="Parking Rate">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <h1>Bousteador Calculator</h1>
   
       <!-- Form Row: Starting Date/Time -->
@@ -369,7 +558,39 @@ button:hover {
         window.close(); // Try to close the current tab (may not work due to browser restrictions)
       }
   
-      
+      // Get elements for modals and buttons
+    const popup1 = document.getElementById('popupModal1');
+    const popup2 = document.getElementById('popupModal2');
+    const openBtn1 = document.querySelector('.side-btn'); // Button for popupModal1
+    const openBtn2 = document.getElementById('openPopup'); // Button for popupModal2
+    const closeBtns = document.querySelectorAll('.close-btn');
+    
+    // Event listener for opening popupModal1
+    openBtn1.addEventListener('click', () => {
+      popup1.style.display = 'block'; // Show first popup
+    });
+    
+    // Event listener for opening popupModal2
+    openBtn2.addEventListener('click', () => {
+      popup2.style.display = 'block'; // Show second popup
+    });
+    
+    // Event listener for closing modals
+    closeBtns.forEach(closeBtn => {
+      closeBtn.addEventListener('click', () => {
+        popup1.style.display = 'none';
+        popup2.style.display = 'none';
+      });
+    });
+    
+    // Close modals if clicked outside
+    window.addEventListener('click', (e) => {
+      if (e.target === popup1) {
+        popup1.style.display = 'none';
+      } else if (e.target === popup2) {
+        popup2.style.display = 'none';
+      }
+    });
     </script>
   </body>
   </html>
